@@ -1,0 +1,46 @@
+.view-repo {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.banner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.banner-text {
+  text-align: center;
+}
+
+.banner-image {
+  height: 225px;
+  margin: 16px;
+}
+
+h2.banner-subtitle {
+  font-size: 36px;
+  margin-top: 0;
+}
+
+.pf-v6-c-masthead__content {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .banner-wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .banner-image {
+    height: 150px;
+  }
+
+  .banner-text {
+    margin-top: 30px;
+  }
+}
