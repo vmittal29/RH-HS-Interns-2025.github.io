@@ -1,6 +1,10 @@
-.view-repo {
+.view-repo-button {
   margin-left: auto;
   margin-right: 0;
+}
+
+.view-repo-button__text i{
+  margin-right: 10px;
 }
 
 .banner-wrapper {
@@ -24,10 +28,10 @@ h2.banner-subtitle {
   margin-top: 0;
 }
 
-.pf-v6-c-masthead__content {
+/* .pf-v6-c-masthead__content {
   margin-left: auto;
   margin-right: 0;
-}
+} */
 
 
 @media only screen and (max-width: 800px) {
