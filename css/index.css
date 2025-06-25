@@ -48,3 +48,82 @@ h2.banner-subtitle {
     margin-top: 30px;
   }
 }
+
+/* Tab content spacing */
+.pf-v6-c-tab-content {
+  margin-top: var(--pf-v6-global--spacer--md);
+}
+
+.pf-v6-c-tabs {
+  margin-bottom: var(--pf-v6-global--spacer--lg);
+}
+
+/* Ensure tab active state and underline are visible */
+.pf-v6-c-tabs__link {
+  position: relative;
+}
+
+.pf-v6-c-tabs__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--pf-t--global--border--width--extra-strong, 3px);
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.pf-v6-c-tabs__link.pf-m-current::after {
+  background-color: var(--pf-t--global--border--color--clicked, #0066cc);
+}
+
+/* Responsive card layout */
+.student-card-list {
+  display: grid;
+  gap: var(--pf-t--global--spacer--gutter--default, 1rem);
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 767px) {
+  .student-card-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet: 2 cards per row */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .student-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 cards per row */
+@media (min-width: 1200px) {
+  .student-card-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ensure cards fill the grid properly */
+.student-card-list .pf-v6-c-card {
+  width: 100%;
+  height: fit-content;
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 767px) {
+  .student-card-list .pf-v6-c-card {
+    margin-bottom: 1rem;
+  }
+  
+  .student-card-list .pf-v6-c-card__footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .student-card-list .pf-v6-c-card__footer .pf-v6-c-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

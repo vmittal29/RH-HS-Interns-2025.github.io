@@ -8,17 +8,8 @@
   font-size: 18px;
 }
 
-#student-card .pf-v5-c-card__footer {
+#student-card .pf-v6-c-card__footer {
   padding-top: 18px;
   padding-bottom: 18px;
   border-top: 1px solid #d8d8d8;
-}
-
-#student-card {
-  width: 400px;
-}
-
-.student-card-list {
-  display: flex;
-  flex-wrap: wrap;
 }

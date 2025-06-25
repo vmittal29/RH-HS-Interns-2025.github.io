@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="css/patternfly.css">
   <link rel="stylesheet" href="css/index.css"/>
   <link rel="stylesheet" href="css/student-card.css"/>
-  <script type="text/javascript" src="js/index.js"></script>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -44,12 +44,36 @@
         </section>
         <section class="pf-v6-c-page__main-section pf-m-limit-width">
           <div class="pf-v6-c-page__main-body">
-            <div class="pf-v6-l-gallery pf-m-gutter student-card-list"></div>
+            <div class="pf-v6-c-tabs" id="cohort-tabs">
+              <ul class="pf-v6-c-tabs__list" role="tablist">
+                <li class="pf-v6-c-tabs__item">
+                  <button class="pf-v6-c-tabs__link pf-m-current" id="cohort1-tab" aria-selected="true" role="tab" tabindex="0" aria-controls="cohort1-panel">
+                    <span class="pf-v6-c-tabs__item-text">Cohort 1</span>
+                  </button>
+                </li>
+                <li class="pf-v6-c-tabs__item">
+                  <button class="pf-v6-c-tabs__link" id="cohort2-tab" aria-selected="false" role="tab" tabindex="-1" aria-controls="cohort2-panel">
+                    <span class="pf-v6-c-tabs__item-text">Cohort 2</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="pf-v6-c-tab-content" id="cohort1-panel" role="tabpanel" tabindex="0" aria-labelledby="cohort1-tab">
+              <div class="pf-v6-c-tab-content__body">
+                <div class="pf-v6-l-gallery pf-m-gutter student-card-list" id="cohort1-cards"></div>
+              </div>
+            </div>
+            <div class="pf-v6-c-tab-content" id="cohort2-panel" role="tabpanel" tabindex="0" aria-labelledby="cohort2-tab">
+              <div class="pf-v6-c-tab-content__body">
+                <div class="pf-v6-l-gallery pf-m-gutter student-card-list" id="cohort2-cards"></div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
     </div>
   </div>
+  <script type="text/javascript" src="data/students.js"></script>
   <script type="text/javascript" src="js/student-card.js"></script>
 </body>
 </html> 
