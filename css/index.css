@@ -108,7 +108,6 @@ h2.banner-subtitle {
 /* Ensure cards fill the grid properly */
 .student-card-list .pf-v6-c-card {
   width: 100%;
-  height: fit-content;
 }
 
 /* Mobile responsive improvements */
