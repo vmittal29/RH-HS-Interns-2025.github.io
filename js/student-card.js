@@ -72,17 +72,55 @@ document.addEventListener('DOMContentLoaded', function() {
   const cohort1Students = students.filter(student => student.cohort === 1);
   const cohort2Students = students.filter(student => student.cohort === 2);
 
-  // Generate HTML for each cohort
-  const cohort1Html = cohort1Students.map(student => generateStudentCard(student)).join('');
-  const cohort2Html = cohort2Students.map(student => generateStudentCard(student)).join('');
+  // Store original student data for filtering
+  const originalStudents = {
+    cohort1: cohort1Students,
+    cohort2: cohort2Students
+  };
 
-  // Populate the tab content areas
-  const cohort1Container = document.getElementById('cohort1-cards');
-  const cohort2Container = document.getElementById('cohort2-cards');
-  
-  if (cohort1Container && cohort2Container) {
-    cohort1Container.innerHTML = cohort1Html;
-    cohort2Container.innerHTML = cohort2Html;
+  // Function to render students in a cohort
+  function renderStudents(cohortStudents, containerId) {
+    const container = document.getElementById(containerId);
+    if (container) {
+      if (cohortStudents.length === 0) {
+        container.innerHTML = '<div class="no-results-message">No students found matching your search.</div>';
+      } else {
+        const html = cohortStudents.map(student => generateStudentCard(student)).join('');
+        container.innerHTML = html;
+      }
+    }
+  }
+
+  // Generate HTML for each cohort
+  renderStudents(cohort1Students, 'cohort1-cards');
+  renderStudents(cohort2Students, 'cohort2-cards');
+
+  // Search functionality
+  function filterStudents(searchTerm) {
+    const term = searchTerm.toLowerCase().trim();
+    
+    if (!term) {
+      // If search is empty, show all students
+      renderStudents(originalStudents.cohort1, 'cohort1-cards');
+      renderStudents(originalStudents.cohort2, 'cohort2-cards');
+      return;
+    }
+
+    // Filter students based on name, school, or location
+    const filteredCohort1 = originalStudents.cohort1.filter(student => 
+      student.name.toLowerCase().includes(term) ||
+      student.school.toLowerCase().includes(term) ||
+      student.location.toLowerCase().includes(term)
+    );
+
+    const filteredCohort2 = originalStudents.cohort2.filter(student => 
+      student.name.toLowerCase().includes(term) ||
+      student.school.toLowerCase().includes(term) ||
+      student.location.toLowerCase().includes(term)
+    );
+
+    renderStudents(filteredCohort1, 'cohort1-cards');
+    renderStudents(filteredCohort2, 'cohort2-cards');
   }
 
   // Tab switching functionality
@@ -153,5 +191,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize - show cohort1 by default and hide cohort2
   switchTab('cohort1-tab', 'cohort1-panel');
+
+  // Search input event listeners
+  const searchInput = document.getElementById('student-search-input');
+  const clearButton = document.getElementById('search-clear-button');
+
+  if (searchInput) {
+    // Add input event listener for real-time search
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value;
+      filterStudents(searchTerm);
+      
+      // Show/hide clear button based on input
+      if (clearButton) {
+        clearButton.style.display = searchTerm ? 'block' : 'none';
+      }
+    });
+
+    // Add keydown event listener for accessibility
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        filterStudents('');
+        if (clearButton) {
+          clearButton.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  // Clear button event listener
+  if (clearButton) {
+    clearButton.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      filterStudents('');
+      clearButton.style.display = 'none';
+    });
+  }
   
 });

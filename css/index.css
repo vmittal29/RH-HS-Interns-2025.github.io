@@ -28,11 +28,6 @@ h2.banner-subtitle {
   margin-top: 0;
 }
 
-/* .pf-v6-c-masthead__content {
-  margin-left: auto;
-  margin-right: 0;
-} */
-
 
 @media only screen and (max-width: 800px) {
   .banner-wrapper {
@@ -50,12 +45,44 @@ h2.banner-subtitle {
 }
 
 /* Tab content spacing */
+.pf-v6-c-tab-content__body {
+  margin-top: 24px;
+}
+
 .pf-v6-c-tab-content {
   margin-top: var(--pf-v6-global--spacer--md);
 }
 
 .pf-v6-c-tabs {
-  margin-bottom: var(--pf-v6-global--spacer--lg);
+  margin-bottom: var(--pf-v6-global--spacer--md);
+}
+
+/* Search bar styling */
+#student-search {
+  margin-bottom: var(--pf-t--global--spacer--xl);
+  max-width: 600px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+/* Ensure search icon is properly positioned */
+#student-search .pf-v6-c-text-input-group__icon {
+  color: var(--pf-t--global--icon--color--regular);
+}
+
+/* Search results styling */
+.no-results-message {
+  text-align: center;
+  padding: var(--pf-t--global--spacer--xl);
+  color: var(--pf-t--global--text--color--subtle);
+  font-size: var(--pf-t--global--font--size--body--lg);
+}
+
+/* Mobile responsive search */
+@media (max-width: 767px) {
+  #student-search {
+    margin-bottom: var(--pf-t--global--spacer--lg);
+  }
 }
 
 /* Ensure tab active state and underline are visible */
