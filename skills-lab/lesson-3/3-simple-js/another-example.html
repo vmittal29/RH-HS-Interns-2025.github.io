@@ -1,0 +1,15 @@
+<h2>Secret Message</h2>
+<button class="my-button" onclick="showMessage()">
+    Show Secret
+</button>
+
+<p id="secret" style="display: none; color: red;">
+    You found it!
+</p>
+
+<!-- Add this at the very bottom, before </body> -->
+<script>
+function showMessage() {
+    document.getElementById('secret').style.display = 'block';
+}
+</script>
