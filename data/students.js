@@ -174,10 +174,16 @@ const students = [
     "cohort": 2
   },
   {
+    "name": "Angel Igboanugo",
+    "location": "Raleigh, North Carolina",
+    "school": "Wakefield High School",
+    "cohort": 2
+  },
+  {
     "name": "Kieran Kelly",
     "location": "Raleigh, North Carolina",
     "school": "Knightdale High School",
-    "cohort": 2
+    "cohort": 1
   },
   {
     "name": "Garrett Waters",
