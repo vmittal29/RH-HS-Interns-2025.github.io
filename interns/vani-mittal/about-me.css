@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, san-serif;
+    background-color: lab(80.32% -20.14 19.07 / 0.494);
+    margin: 20px;
+}
+
+h1 {
+    color: #333366;
+}
+
+.highlight {
+    background-color: #a6d7ff;
+    padding: 5px;
+}
+
+.my-style {
+    color: #ff6600;
+    font-size: 18px;
+}
